@@ -1,6 +1,10 @@
-grammar Sample_Meta;
+grammar Sample;
 
 /* Comment */
+
+@header { package org.test; }
+@members { private int number = 0; }
+/* <csharp> @members { private int number = 0; } */
 
 parse: EOF
 {

@@ -1,9 +1,10 @@
 @ECHO OFF
 
-SET GRAMMARNAME=MetaGram_Meta
+SET GRAMMARNAME=MetaGram
+SET PACKAGE=metagram.antlr
 SET JAVA_TARGET_DIR=java
-SET JAVA_TARGET_SRC_DIR=src
-SET JAVA_TARGET_OUT_DIR=out
+SET JAVA_TARGET_SRC_DIR=src/metagram/antlr
+SET JAVA_TARGET_OUT_DIR=out/production/java
 
 IF NOT DEFINED JAVA_HOME (
 ECHO JAVA_HOME environment variable is not defined ! Create it and indicate JDK location as value.
@@ -15,11 +16,11 @@ ECHO CLASSPATH environment variable is not defined ! Create it with ".;antlr_jar
 EXIT /B 203
 )
 
-RMDIR /S /Q "%JAVA_TARGET_DIR%"
+RMDIR /S /Q "%JAVA_TARGET_SRC_DIR%"
 
 ECHO Compile grammar to Java...
 
-"%JAVA_HOME%\bin\java.exe" -cp "%CLASSPATH%" org.antlr.v4.Tool "%GRAMMARNAME%.g4" -o "%JAVA_TARGET_DIR%/%JAVA_TARGET_SRC_DIR%/"
+"%JAVA_HOME%\bin\java.exe" -cp "%CLASSPATH%" org.antlr.v4.Tool "%GRAMMARNAME%.g4" -o "%JAVA_TARGET_DIR%/%JAVA_TARGET_SRC_DIR%/" -package "%PACKAGE%" -no-listener -visitor
 IF errorlevel 1 (
 ECHO Compilation failed!
 EXIT /B %errorlevel%
