@@ -1,12 +1,24 @@
 grammar MetaGram;
 
-parse: (default_language | language | QUOTE | TOKENS | OTHERS)* EOF;
-default_language: DEFAULT_LANGUAGE;
-language: language_name code;
-language_name: LANGUAGE_NAME;
+parse: (defaultCode | targetCode | QUOTE | TOKENS | OTHERS)* EOF;
+defaultCode: DEFAULT_CODE;
+targetCode: target code;
+target: TARGET;
 code: CODE;
 
-LANGUAGE_NAME: '/*' VOID? '<' VOID? [a-zA-Z0-9]+ VOID? '>'
+DEFAULT_CODE: ('@header' | '@members')? VOID? '{' (INNER_CODE | ~[}])* '}' VOID?
+    {
+        setText(getText().trim());
+    }
+    /*
+    <csharp>
+    {
+        Text = Text.Trim();
+    }
+    */
+    ;
+
+TARGET: '/*' VOID? '<' VOID? [a-zA-Z0-9]+ VOID? '>'
     {
         String s = getText().trim();
         s = s.substring(2, s.length() - 1).trim();
@@ -36,18 +48,6 @@ CODE: VOID? ('@header' | '@members')? VOID? '{' (INNER_CODE | ~[}])* '}' VOID? '
         string s = Text.Trim();
         s = s.Substring(0, s.Length - 2).Trim();
         Text = s;
-    }
-    */
-    ;
-
-DEFAULT_LANGUAGE: ('@header' | '@members')? VOID? '{' (INNER_CODE | ~[}])* '}' VOID?
-    {
-        setText(getText().trim());
-    }
-    /*
-    <csharp>
-    {
-        Text = Text.Trim();
     }
     */
     ;

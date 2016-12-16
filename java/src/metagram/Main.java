@@ -23,11 +23,11 @@ public class Main {
         {
             String arg = args[i];
 
-            if (arg.startsWith("/"))
+            if (arg.startsWith("--"))
             {
                 switch (arg)
                 {
-                    case "/default":
+                    case "--default":
                         defaultTarget = true;
                         continue;
                 }
@@ -109,6 +109,6 @@ public class Main {
 
     private static void PrintUsage()
     {
-        System.out.println("Usage: MetaGram file /default (targetName)*");
+        System.out.println("Usage: MetaGram grammarFile outputDirectory --default (targetName)*");
     }
 }

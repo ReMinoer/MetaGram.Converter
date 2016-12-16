@@ -13,22 +13,28 @@ public class TargetVisitor extends MetaGramBaseVisitor<String>
     {
         _target = null;
     }
-
     public TargetVisitor(String target)
     {
         _target = target;
     }
 
     @Override
-    public String visitDefault_language(MetaGramParser.Default_languageContext ctx)
+    public String visitParse(MetaGramParser.ParseContext ctx)
     {
-        return _target == null ? super.visitDefault_language(ctx) + "\n" : "";
+        String result =  super.visitParse(ctx);
+        return result.substring(0, result.length() - 5);
     }
 
     @Override
-    public String visitLanguage(MetaGramParser.LanguageContext ctx)
+    public String visitDefaultCode(MetaGramParser.DefaultCodeContext ctx)
     {
-        String name = visitLanguage_name(ctx.language_name());
+        return _target == null ? super.visitDefaultCode(ctx) + "\n" : "";
+    }
+
+    @Override
+    public String visitTargetCode(MetaGramParser.TargetCodeContext ctx)
+    {
+        String name = visitTarget(ctx.target());
         return name.equals(_target) ? visitCode(ctx.code()) + "\n" : "";
     }
 
