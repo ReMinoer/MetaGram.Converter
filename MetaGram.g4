@@ -1,6 +1,6 @@
 grammar MetaGram;
 
-parse: (default_language | language | TOKENS | OTHERS)* EOF;
+parse: (default_language | language | QUOTE | TOKENS | OTHERS)* EOF;
 default_language: DEFAULT_LANGUAGE;
 language: language_name code;
 language_name: LANGUAGE_NAME;
@@ -52,8 +52,10 @@ DEFAULT_LANGUAGE: ('@header' | '@members')? VOID? '{' (INNER_CODE | ~[}])* '}' V
     */
     ;
 
-TOKENS: [/*<>{}@]+;
-OTHERS: ~[/*<>{}@]+;
+QUOTE: '\'' (~['] | '\\\'')* '\'';
+
+TOKENS: ['/*<>{}@]+;
+OTHERS: ~['/*<>{}@]+;
 
 fragment INNER_CODE: VOID '{' (INNER_CODE | ~[}])* '}' VOID;
 fragment VOID: (' ' | '\t' | '\n' | '\r')+;
