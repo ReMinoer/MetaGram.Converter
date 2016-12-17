@@ -3,7 +3,7 @@ using MetaGram.Antlr;
 
 namespace MetaGram
 {
-    class TargetVisitor : MetaGramBaseVisitor<string>
+    public class TargetVisitor : MetaGramBaseVisitor<string>
     {
         private readonly string _target;
 
@@ -45,11 +45,6 @@ namespace MetaGram
         public override string VisitTerminal(ITerminalNode node)
         {
             return node.GetText();
-        }
-
-        protected override string AggregateResult(string aggregate, string nextResult)
-        {
-            return aggregate + nextResult;
         }
     }
 }

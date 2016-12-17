@@ -4,7 +4,7 @@ using System.IO;
 using Antlr4.Runtime;
 using MetaGram.Antlr;
 
-namespace MetaGram
+namespace MetaGram.Console
 {
     static internal class Program
     {
@@ -42,6 +42,14 @@ namespace MetaGram
 
             if (grammarFile?.Directory == null)
             {
+                System.Console.WriteLine("ERROR: <grammarFile> not provided !");
+                PrintUsage();
+                return;
+            }
+
+            if (outputDirectory == null)
+            {
+                System.Console.WriteLine("ERROR: <outputDirectory> not provided !");
                 PrintUsage();
                 return;
             }
@@ -53,26 +61,24 @@ namespace MetaGram
             var parser = new MetaGramParser(tokens);
             MetaGramParser.ParseContext context = parser.parse();
 
-            DirectoryInfo directory = grammarFile.Directory.CreateSubdirectory("metagram");
-
             if (defaultTarget)
             {
                 string result = new TargetVisitor().Visit(context);
-                DirectoryInfo targetDirectory = directory.CreateSubdirectory("default");
+                DirectoryInfo targetDirectory = outputDirectory.CreateSubdirectory("default");
                 File.WriteAllText(Path.Combine(targetDirectory.FullName, grammarFile.Name), result);
             }
 
             foreach (string target in targets)
             {
                 string result = new TargetVisitor(target).Visit(context);
-                DirectoryInfo targetDirectory = directory.CreateSubdirectory(target);
+                DirectoryInfo targetDirectory = outputDirectory.CreateSubdirectory(target);
                 File.WriteAllText(Path.Combine(targetDirectory.FullName, grammarFile.Name), result);
             }
         }
 
         static private void PrintUsage()
         {
-            Console.WriteLine("Usage: MetaGram grammarFile outputDirectory --default (targetName)*");
+            System.Console.WriteLine("Usage: MetaGram <grammarFile> <outputDirectory> (--default)? (<targetName>)*");
         }
     }
 }

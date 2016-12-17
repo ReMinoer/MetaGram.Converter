@@ -15,7 +15,8 @@ public class Main {
             return;
         }
 
-        File file = null;
+        File grammarFile = null;
+        File outputDirectory = null;
         boolean defaultTarget = false;
         List<String> targets = new ArrayList<String>();
 
@@ -32,14 +33,24 @@ public class Main {
                         continue;
                 }
             }
-            else if (file == null)
-                file = new File(arg);
+            else if (grammarFile == null)
+                grammarFile = new File(arg);
+            else if (outputDirectory == null)
+                outputDirectory = new File(arg);
             else
                 targets.add(args[i]);
         }
 
-        if (file == null)
+        if (grammarFile == null)
         {
+            System.out.println("ERROR: <grammarFile> not provided !");
+            PrintUsage();
+            return;
+        }
+
+        if (outputDirectory == null)
+        {
+            System.out.println("ERROR: <outputDirectory> not provided !");
             PrintUsage();
             return;
         }
@@ -47,7 +58,7 @@ public class Main {
         ANTLRFileStream in;
         try
         {
-            in = new ANTLRFileStream(file.getAbsolutePath());
+            in = new ANTLRFileStream(grammarFile.getAbsolutePath());
         }
         catch (IOException e)
         {
@@ -60,8 +71,6 @@ public class Main {
         MetaGramParser parser = new MetaGramParser(tokens);
         MetaGramParser.ParseContext context = parser.parse();
 
-        File outputDirectory = new File(file.getParentFile(), "metagram/");
-
         TargetVisitor targetVisitor;
         if (defaultTarget)
         {
@@ -69,7 +78,7 @@ public class Main {
 
             File targetDirectory = new File(outputDirectory, "default/");
             targetDirectory.mkdirs();
-            File targetFile = new File(targetDirectory, file.getName());
+            File targetFile = new File(targetDirectory, grammarFile.getName());
 
             try
             {
@@ -91,7 +100,7 @@ public class Main {
 
             File targetDirectory = new File(outputDirectory, target + "/");
             targetDirectory.mkdirs();
-            File targetFile = new File(targetDirectory, file.getName());
+            File targetFile = new File(targetDirectory, grammarFile.getName());
 
             try
             {
@@ -109,6 +118,6 @@ public class Main {
 
     private static void PrintUsage()
     {
-        System.out.println("Usage: MetaGram grammarFile outputDirectory --default (targetName)*");
+        System.out.println("Usage: MetaGram <grammarFile> <outputDirectory> (--default)? (<targetName>)*");
     }
 }
