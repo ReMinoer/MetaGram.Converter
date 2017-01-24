@@ -2,7 +2,7 @@
 
 SET GRAMMARNAME=metagram.antlr.MetaGram
 SET JAVA_TARGET_DIR=java
-SET JAVA_TARGET_OUT_DIR=out/production/java
+SET JAVA_TARGET_OUT_DIR=out
 
 IF [%1]==[] GOTO USAGE
 
@@ -18,14 +18,14 @@ EXIT /B 203
 
 CD "%JAVA_TARGET_DIR%/%JAVA_TARGET_OUT_DIR%/"
 
-"%JAVA_HOME%\bin\java.exe" -cp "%CLASSPATH%" org.antlr.v4.gui.TestRig %GRAMMARNAME% parse <../../../../%*
+"%JAVA_HOME%\bin\java.exe" -cp "%CLASSPATH%" org.antlr.v4.gui.TestRig %GRAMMARNAME% parse <../../%*
 IF errorlevel 1 (
 ECHO Failed to open tree!
-CD ../../../..
+CD ../..
 EXIT /B 1
 )
 
-CD ../../../..
+CD ../..
 EXIT /B 0
 
 :USAGE

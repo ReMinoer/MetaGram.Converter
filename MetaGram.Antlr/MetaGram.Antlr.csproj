@@ -44,15 +44,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Antlr4 Include="..\..\metagram\csharp\MetaGram.g4">
-      <Link>MetaGram.g4</Link>
+    <Antlr4 Include="..\antlr\MetaGramLexer.g4">
+      <Link>MetaGramLexer.g4</Link>
       <Generator>MSBuild:Compile</Generator>
       <CustomToolNamespace>MetaGram.Antlr</CustomToolNamespace>
-      <Visitor>True</Visitor>
       <Listener>False</Listener>
     </Antlr4>
-  </ItemGroup>
-  <ItemGroup>
+    <Antlr4 Include="..\antlr\MetaGramParser.g4">
+      <Link>MetaGramParser.g4</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <CustomToolNamespace>MetaGram.Antlr</CustomToolNamespace>
+      <Listener>False</Listener>
+    </Antlr4>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

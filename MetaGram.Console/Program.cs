@@ -61,11 +61,12 @@ namespace MetaGram.Console
             var parser = new MetaGramParser(tokens);
             MetaGramParser.ParseContext context = parser.parse();
 
+            outputDirectory.Create();
+
             if (defaultTarget)
             {
                 string result = new TargetVisitor().Visit(context);
-                DirectoryInfo targetDirectory = outputDirectory.CreateSubdirectory("default");
-                File.WriteAllText(Path.Combine(targetDirectory.FullName, grammarFile.Name), result);
+                File.WriteAllText(Path.Combine(outputDirectory.FullName, grammarFile.Name), result);
             }
 
             foreach (string target in targets)
