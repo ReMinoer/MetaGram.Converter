@@ -10,6 +10,10 @@ namespace MetaGram.Console
     {
         static private void Main(string[] args)
         {
+#if DEBUG
+            args = new[] { "../../../antlr/Sample.g4", "output/", "--default", "csharp", "cpp" };
+#endif
+
             if (args.Length == 0)
             {
                 PrintUsage();
@@ -25,9 +29,9 @@ namespace MetaGram.Console
             {
                 if (arg.StartsWith("--", StringComparison.Ordinal))
                 {
-                    switch (arg)
+                    switch (arg.Substring(2))
                     {
-                        case "--default":
+                        case "default":
                             defaultTarget = true;
                             continue;
                     }
