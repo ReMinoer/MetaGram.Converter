@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{33BF9FB2-0177-464B-BD30-2E9E2AC7A5FB}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{CED2690F-0468-4DE3-AC3F-43536580E1DA}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MetaGram.Console</RootNamespace>
-    <AssemblyName>MetaGram.Console</AssemblyName>
+    <RootNamespace>MetaGram.Converter</RootNamespace>
+    <AssemblyName>MetaGram.Converter</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -35,6 +35,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Antlr4.Runtime, Version=4.6.0.0, Culture=neutral, PublicKeyToken=e9931a4108ef2354, processorArchitecture=MSIL">
       <HintPath>..\packages\Antlr4.Runtime.4.6.1-beta002\lib\net45\Antlr4.Runtime.dll</HintPath>
@@ -43,20 +46,16 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TargetVisitor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MetaGram.Antlr\MetaGram.Antlr.csproj">
-      <Project>{500a0b54-8305-481a-b41d-2eafd945c922}</Project>
-      <Name>MetaGram.Antlr</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MetaGram\MetaGram.csproj">
-      <Project>{ced2690f-0468-4de3-ac3f-43536580e1da}</Project>
+      <Project>{500a0b54-8305-481a-b41d-2eafd945c922}</Project>
       <Name>MetaGram</Name>
     </ProjectReference>
   </ItemGroup>

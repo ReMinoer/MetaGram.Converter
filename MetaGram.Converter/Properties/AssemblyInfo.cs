@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Les informations générales relatives à un assembly dépendent de 
 // l'ensemble d'attributs suivant. Changez les valeurs de ces attributs pour modifier les informations
 // associées à un assembly.
-[assembly: AssemblyTitle("MetaGram.Console")]
+[assembly: AssemblyTitle("MetaGram.Converter")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("MetaGram.Console")]
+[assembly: AssemblyProduct("MetaGram.Converter")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Le GUID suivant est pour l'ID de la typelib si ce projet est exposé à COM
-[assembly: Guid("33bf9fb2-0177-464b-bd30-2e9e2ac7a5fb")]
+[assembly: Guid("ced2690f-0468-4de3-ac3f-43536580e1da")]
 
 // Les informations de version pour un assembly se composent des quatre valeurs suivantes :
 //

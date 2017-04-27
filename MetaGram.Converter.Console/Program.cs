@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using Antlr4.Runtime;
-using MetaGram.Antlr;
 
-namespace MetaGram.Console
+namespace MetaGram.Converter.Console
 {
     static internal class Program
     {

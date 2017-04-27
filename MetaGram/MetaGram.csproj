@@ -5,19 +5,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CED2690F-0468-4DE3-AC3F-43536580E1DA}</ProjectGuid>
+    <ProjectGuid>{500A0B54-8305-481A-B41D-2EAFD945C922}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MetaGram</RootNamespace>
     <AssemblyName>MetaGram</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -27,16 +25,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Antlr4.Runtime, Version=4.6.0.0, Culture=neutral, PublicKeyToken=e9931a4108ef2354, processorArchitecture=MSIL">
@@ -47,17 +41,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TargetVisitor.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <Antlr4 Include="..\antlr\MetaGramLexer.g4">
+      <Link>MetaGramLexer.g4</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <CustomToolNamespace>MetaGram</CustomToolNamespace>
+      <Listener>False</Listener>
+    </Antlr4>
+    <Antlr4 Include="..\antlr\MetaGramParser.g4">
+      <Link>MetaGramParser.g4</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <CustomToolNamespace>MetaGram</CustomToolNamespace>
+      <Listener>False</Listener>
+    </Antlr4>
+  </ItemGroup>
+  <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MetaGram.Antlr\MetaGram.Antlr.csproj">
-      <Project>{500a0b54-8305-481a-b41d-2eafd945c922}</Project>
-      <Name>MetaGram.Antlr</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

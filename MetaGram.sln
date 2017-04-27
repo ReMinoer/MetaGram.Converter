@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetaGram", "MetaGram\MetaGram.csproj", "{CED2690F-0468-4DE3-AC3F-43536580E1DA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetaGram.Converter", "MetaGram.Converter\MetaGram.Converter.csproj", "{CED2690F-0468-4DE3-AC3F-43536580E1DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetaGram.Antlr", "MetaGram.Antlr\MetaGram.Antlr.csproj", "{500A0B54-8305-481A-B41D-2EAFD945C922}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetaGram", "MetaGram\MetaGram.csproj", "{500A0B54-8305-481A-B41D-2EAFD945C922}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetaGram.Console", "MetaGram.Console\MetaGram.Console.csproj", "{33BF9FB2-0177-464B-BD30-2E9E2AC7A5FB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetaGram.Converter.Console", "MetaGram.Converter.Console\MetaGram.Converter.Console.csproj", "{33BF9FB2-0177-464B-BD30-2E9E2AC7A5FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,8 +1,7 @@
 ﻿using System.Linq;
 using Antlr4.Runtime.Tree;
-using MetaGram.Antlr;
 
-namespace MetaGram
+namespace MetaGram.Converter
 {
     public class TargetVisitor : MetaGramParserBaseVisitor<string>
     {
