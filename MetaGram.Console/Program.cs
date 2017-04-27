@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using Antlr4.Runtime;
 using MetaGram.Antlr;
 
@@ -57,8 +58,9 @@ namespace MetaGram.Console
                 PrintUsage();
                 return;
             }
-
-            var inputStream = new AntlrFileStream(grammarFile.FullName);
+            
+            var encoding = new UTF8Encoding(false);
+            var inputStream = new AntlrFileStream(grammarFile.FullName, encoding);
 
             var lexer = new MetaGramLexer(inputStream);
             var tokens = new CommonTokenStream(lexer);
@@ -70,14 +72,14 @@ namespace MetaGram.Console
             if (defaultTarget)
             {
                 string result = new TargetVisitor().Visit(context);
-                File.WriteAllText(Path.Combine(outputDirectory.FullName, grammarFile.Name), result);
+                File.WriteAllText(Path.Combine(outputDirectory.FullName, grammarFile.Name), result, encoding);
             }
 
             foreach (string target in targets)
             {
                 string result = new TargetVisitor(target).Visit(context);
                 DirectoryInfo targetDirectory = outputDirectory.CreateSubdirectory(target);
-                File.WriteAllText(Path.Combine(targetDirectory.FullName, grammarFile.Name), result);
+                File.WriteAllText(Path.Combine(targetDirectory.FullName, grammarFile.Name), result, encoding);
             }
         }
 
