@@ -1,3 +1,4 @@
 [submodule "antlr"]
 	path = antlr
 	url = https://github.com/ReMinoer/MetaGram.git
+	branch = master
