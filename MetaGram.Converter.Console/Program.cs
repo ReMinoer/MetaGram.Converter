@@ -9,7 +9,7 @@ namespace MetaGram.Converter.Console
 {
     static internal class Program
     {
-        static private void Main(string[] args)
+        static void Main(string[] args)
         {
 #if DEBUG
             string executableLocation = Assembly.GetEntryAssembly().Location;
