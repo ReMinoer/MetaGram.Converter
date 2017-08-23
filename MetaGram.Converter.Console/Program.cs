@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 using System.Text;
 using Antlr4.Runtime;
 
@@ -11,7 +12,9 @@ namespace MetaGram.Converter.Console
         static private void Main(string[] args)
         {
 #if DEBUG
-            args = new[] { "../../../antlr/Sample.g4", "output/", "--default", "csharp", "cpp" };
+            string executableLocation = Assembly.GetEntryAssembly().Location;
+            if (args.Length == 0)
+                args = new[] { "../antlr/Sample.g4", Path.Combine(Path.GetDirectoryName(executableLocation), "output"), "--default", "csharp", "cpp" };
 #endif
 
             if (args.Length == 0)
@@ -59,7 +62,7 @@ namespace MetaGram.Converter.Console
             }
             
             var encoding = new UTF8Encoding(false);
-            var inputStream = new AntlrFileStream(grammarFile.FullName, encoding);
+            var inputStream = new AntlrInputStream(new StreamReader(grammarFile.OpenRead()));
 
             var lexer = new MetaGramLexer(inputStream);
             var tokens = new CommonTokenStream(lexer);

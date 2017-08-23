@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.12
+VisualStudioVersion = 15.0.26730.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetaGram.Converter", "MetaGram.Converter\MetaGram.Converter.csproj", "{CED2690F-0468-4DE3-AC3F-43536580E1DA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetaGram", "MetaGram\MetaGram.csproj", "{9F701E31-A334-4450-909B-65718901F8DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetaGram", "MetaGram\MetaGram.csproj", "{500A0B54-8305-481A-B41D-2EAFD945C922}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetaGram.Converter", "MetaGram.Converter\MetaGram.Converter.csproj", "{FF1CEF4C-1474-4487-B35E-5AB62EF36C61}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetaGram.Converter.Console", "MetaGram.Converter.Console\MetaGram.Converter.Console.csproj", "{33BF9FB2-0177-464B-BD30-2E9E2AC7A5FB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetaGram.Converter.Console", "MetaGram.Converter.Console\MetaGram.Converter.Console.csproj", "{9E73134E-B790-4F5C-B360-2EE402995CE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,20 +15,23 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CED2690F-0468-4DE3-AC3F-43536580E1DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CED2690F-0468-4DE3-AC3F-43536580E1DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CED2690F-0468-4DE3-AC3F-43536580E1DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CED2690F-0468-4DE3-AC3F-43536580E1DA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{500A0B54-8305-481A-B41D-2EAFD945C922}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{500A0B54-8305-481A-B41D-2EAFD945C922}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{500A0B54-8305-481A-B41D-2EAFD945C922}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{500A0B54-8305-481A-B41D-2EAFD945C922}.Release|Any CPU.Build.0 = Release|Any CPU
-		{33BF9FB2-0177-464B-BD30-2E9E2AC7A5FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{33BF9FB2-0177-464B-BD30-2E9E2AC7A5FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{33BF9FB2-0177-464B-BD30-2E9E2AC7A5FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{33BF9FB2-0177-464B-BD30-2E9E2AC7A5FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F701E31-A334-4450-909B-65718901F8DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F701E31-A334-4450-909B-65718901F8DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F701E31-A334-4450-909B-65718901F8DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F701E31-A334-4450-909B-65718901F8DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF1CEF4C-1474-4487-B35E-5AB62EF36C61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF1CEF4C-1474-4487-B35E-5AB62EF36C61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF1CEF4C-1474-4487-B35E-5AB62EF36C61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF1CEF4C-1474-4487-B35E-5AB62EF36C61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E73134E-B790-4F5C-B360-2EE402995CE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E73134E-B790-4F5C-B360-2EE402995CE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E73134E-B790-4F5C-B360-2EE402995CE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E73134E-B790-4F5C-B360-2EE402995CE5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B1AC6FAC-459E-4FFC-B5E5-D5D8FDC1EDE5}
 	EndGlobalSection
 EndGlobal
